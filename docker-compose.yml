@@ -60,6 +60,14 @@ services:
             PMA_HOST: mysql
         networks:
             - sail
+    mail:
+        image: axllent/mailpit:v1.8
+        container_name: mailpit
+        ports:
+        - 8025:8025
+        - 1025:1025
+        networks:
+        - sail
 networks:
     sail:
         driver: bridge
