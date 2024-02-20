@@ -17,7 +17,7 @@
         @csrf
         @method('patch')
         <div>
-            <x-input-label for="image" :value="__('Image')" />
+            <x-input-label for="image" :value="__('プロフィール')" />
             <x-user-image />
             <x-input-error class="mt-2" :messages="$errors->get('image')" />
         </div>

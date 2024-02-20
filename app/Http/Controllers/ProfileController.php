@@ -33,15 +33,10 @@ class ProfileController extends Controller
             $request->user()->email_verified_at = null;
         }
 
-
-        // 画像があれば/uploadsに保存する、なければnull
         $path = null;
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('uploads', 'public');
             $request->user()->image = $path;
-        }
-        if($currentImage = $request->user()->image){
-            Storage::disk('public')->delete($currentImage);
         }
 
         $request->user()->save();

@@ -1,6 +1,11 @@
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
+        <div>
+            <x-input-label for="image" :value="__('プロフィール画像')" />
+            <x-user-image />
+            <x-input-error class="mt-2" :messages="$errors->get('image')" />
+        </div>
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
